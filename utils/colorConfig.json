@@ -1,0 +1,183 @@
+[{
+        "properties": {
+            "steps": 11,
+            "hue": {
+                "start": 340,
+                "end": 359,
+                "curve": "easeOutQuad"
+            },
+            "saturation": {
+                "start": 0.08,
+                "end": 1,
+                "rate": 1,
+                "curve": "easeOutQuad"
+            },
+            "brightness": {
+                "start": 1,
+                "end": 0.3,
+                "curve": "easeInQuart"
+            }
+        },
+        "options": {
+            "minorSteps": [
+                0,
+                1
+            ],
+            "name": "red",
+            "lockHex": "#f5222d",
+            "provideInverted": false,
+            "rotation": "clockwise"
+        }
+    },
+    {
+        "properties": {
+            "steps": 11,
+            "hue": {
+                "start": 40,
+                "end": 60,
+                "curve": "easeOutQuad"
+            },
+            "saturation": {
+                "start": 0.08,
+                "end": 1,
+                "rate": 1,
+                "curve": "easeOutQuad"
+            },
+            "brightness": {
+                "start": 1,
+                "end": 0.3,
+                "curve": "easeInQuart"
+            }
+        },
+        "options": {
+            "minorSteps": [
+                0,
+                1
+            ],
+            "name": "yellow",
+            "lockHex": "",
+            "provideInverted": false,
+            "rotation": "clockwise"
+        }
+    },
+    {
+        "properties": {
+            "steps": 11,
+            "hue": {
+                "start": 100,
+                "end": 120,
+                "curve": "easeOutQuad"
+            },
+            "saturation": {
+                "start": 0.08,
+                "end": 1,
+                "rate": 1,
+                "curve": "easeOutQuad"
+            },
+            "brightness": {
+                "start": 1,
+                "end": 0.3,
+                "curve": "easeInQuart"
+            }
+        },
+        "options": {
+            "minorSteps": [
+                0,
+                1
+            ],
+            "name": "green",
+            "provideInverted": false,
+            "rotation": "clockwise"
+        }
+    },
+    {
+        "properties": {
+            "steps": 11,
+            "hue": {
+                "start": 160,
+                "end": 180,
+                "curve": "easeOutQuad"
+            },
+            "saturation": {
+                "start": 0.08,
+                "end": 1,
+                "rate": 1,
+                "curve": "easeOutQuad"
+            },
+            "brightness": {
+                "start": 1,
+                "end": 0.3,
+                "curve": "easeInQuart"
+            }
+        },
+        "options": {
+            "minorSteps": [
+                0,
+                1
+            ],
+            "name": "cyan",
+            "provideInverted": false,
+            "rotation": "clockwise"
+        }
+    },
+    {
+        "properties": {
+            "steps": 11,
+            "hue": {
+                "start": 220,
+                "end": 240,
+                "curve": "easeOutQuad"
+            },
+            "saturation": {
+                "start": 0.08,
+                "end": 1,
+                "rate": 1,
+                "curve": "easeOutQuad"
+            },
+            "brightness": {
+                "start": 1,
+                "end": 0.3,
+                "curve": "easeInQuart"
+            }
+        },
+        "options": {
+            "minorSteps": [
+                0,
+                1
+            ],
+            "name": "blue",
+            "provideInverted": false,
+            "rotation": "clockwise"
+        }
+    },
+    {
+        "properties": {
+            "steps": 11,
+            "hue": {
+                "start": 280,
+                "end": 300,
+                "curve": "easeOutQuad"
+            },
+            "saturation": {
+                "start": 0.08,
+                "end": 1,
+                "rate": 1,
+                "curve": "easeOutQuad"
+            },
+            "brightness": {
+                "start": 1,
+                "end": 0.3,
+                "curve": "easeInQuart"
+            }
+        },
+        "options": {
+            "minorSteps": [
+                0,
+                1
+            ],
+            "name": "purple",
+            "provideInverted": false,
+            "rotation": "clockwise"
+        }
+    }
+]

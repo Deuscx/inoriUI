@@ -1,0 +1,53 @@
+
+:host {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--theme-color, #2a80eb);
+  font-size: inherit;
+}
+
+:host(:not(:empty)) .i-loading {
+  margin: 0.5em;
+}
+
+.i-loading {
+  display: block;
+  width: 1em;
+  height: 1em;
+  margin: auto;
+  animation: rotate 1.4s linear infinite;
+}
+
+.circle {
+  transition: 0.3s;
+  animation: progress 1.4s ease-in-out infinite;
+  stroke: currentColor;
+  stroke-dasharray: 80px, 200px;
+  stroke-dashoffset: 0;
+}
+
+@keyframes rotate {
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes progress {
+
+  0% {
+    stroke-dasharray: 1px, 200px;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 100px, 200px;
+    stroke-dashoffset: -15px;
+  }
+
+  100% {
+    stroke-dasharray: 100px, 200px;
+    stroke-dashoffset: -125px;
+  }
+}

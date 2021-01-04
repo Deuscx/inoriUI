@@ -1,0 +1,208 @@
+
+@mixin flowShow($flow: "up") {
+  :host([flow^=#{$flow}]:hover:not([show=false]))::before,
+  :host([flow^=#{$flow}]:hover:not([show=false]))::after,
+  :host([flow^=#{$flow}][show=true])::before,
+  :host([flow^=#{$flow}][show=true])::after,
+  :host([flow^=#{$flow}]:focus-within:not([show=false]))::before,
+  :host([flow^=#{$flow}]:focus-within:not([show=false]))::after {
+    @content;
+  }
+}
+
+:host {
+  --bg: #4a4a4ef8;
+  --text: #fff;
+  --shadow: rgba(0, 0, 0, 0.35);
+  --dink: 5px;
+
+  position: relative;
+
+  // texts
+  display: inline-block;
+  overflow: visible;
+
+  &::before,
+  &::after {
+    position: absolute;
+    text-transform: none;
+    visibility: hidden;
+    opacity: 0;
+    transition:
+      opacity 0.2s ease-in-out,
+      visibility 0.2s ease-in-out,
+      transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+    user-select: none;
+    pointer-events: none;
+  }
+  //三角形
+
+  &::before {
+    z-index: 1001;
+    width: 0;
+    height: 0;
+    border: var(--dink) solid transparent;
+    content: '';
+  }
+  // 内容区
+
+  &::after {
+    z-index: 1000;
+    width: max-content;
+    min-width: 3em;
+    max-width: 20em;
+    padding: 6px 10px;
+    color: var(--text);
+    text-align: center;
+    background: var(--bg);
+    border-radius: 0.3em;
+    box-shadow: 0 1em 2em -0.5em var(--shadow);
+    content: attr(text);
+  }
+}
+
+:host([text]:hover:not([show=false]))::before,
+:host([text]:hover:not([show=false]))::after,
+:host([text][show=true])::before,
+:host([text][show=true])::after,
+:host([text]:focus-within:not([show=false]))::before,
+:host([text]:focus-within:not([show=false]))::after {
+  visibility: visible;
+  opacity: 1;
+}
+
+//默认是up
+
+:host(:not([flow])),
+:host([flow^="up"]) {
+
+  &::before,
+  &::after {
+    bottom: 100%;
+    left: 50%;
+    transform: translate(-50%, -1px);
+  }
+
+  &::before {
+    left: calc(var(--percent, 0.5) * 100%);
+    margin-bottom: -9px;
+    border-top-color: var(--bg);
+  }
+}
+
+:host([flow="up-left"]) {
+
+  &::before {
+    --percent: 0.2;
+  }
+}
+
+:host([flow="up-right"]) {
+
+  &::before {
+    --percent: 0.8;
+  }
+}
+
+@include flowShow() {
+  transform: translate(-50%, -0.5em);
+}
+
+:host(:not([flow]):hover:not([show=false]))::before,
+:host(:not([flow]):hover:not([show=false]))::after,
+:host(:not([flow])[show=true])::before,
+:host(:not([flow])[show=true])::after,
+:host(:not([flow]):focus-within:not([show=false]))::before,
+:host(:not([flow]):focus-within:not([show=false]))::after {
+  transform: translate(-50%, -0.5em);
+}
+
+/* bottom */
+
+:host([flow^="down"]) {
+
+  &::before,
+  &::after {
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 1em);
+  }
+
+  &::before {
+    left: calc(var(--percent, 0.5) * 100%);
+    margin-top: -9px;
+    border-bottom-color: var(--bg);
+  }
+}
+
+:host([flow="down-left"]) {
+
+  &::before {
+    --percent: 0.2;
+  }
+}
+
+:host([flow="down-right"]) {
+
+  &::before {
+    --percent: 0.8;
+  }
+}
+
+@include flowShow("down") {
+  transform: translate(-50%, 0.5em);
+}
+
+/* left */
+
+:host([flow^="left"]) {
+
+  &::before,
+  &::after {
+    top: 50%;
+    right: 100%;
+    transform: translate(-1em, -50%);
+  }
+
+  &::before {
+    top: calc(var(--percent, 0.5) * 100%);
+    margin-right: -9px;
+    border-left-color: var(--bg);
+  }
+}
+
+@include flowShow("left") {
+  transform: translate(-0.5em, -50%);
+}
+
+
+/* left */
+
+:host([flow^="right"]) {
+
+  &::before,
+  &::after {
+    top: 50%;
+    left: 100%;
+    transform: translate(1em, -50%);
+  }
+
+  &::before {
+    top: calc(var(--percent, 0.5) * 100%);
+    margin-left: -9px;
+    border-right-color: var(--bg);
+  }
+}
+
+@include flowShow("right") {
+  transform: translate(0.5em, -50%);
+}
+// don't show empty texts
+
+:host([text='']) {
+
+  &::after,
+  &::before {
+    display: none !important;
+  }
+}

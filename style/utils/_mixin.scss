@@ -1,0 +1,15 @@
+@mixin btn-color-with-type($type,$color) {
+  &-#{$type} {
+    color: white;
+    background-color: $color;
+
+    &:active {
+      background-color: lighten($color, 1.2);
+    }
+
+    &:hover {
+      background-color: darken($color, 1.5);
+      outline: none;
+    }
+  }
+}

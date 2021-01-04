@@ -1,0 +1,90 @@
+:host {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+:host([disabled]) {
+  overflow: hidden;
+  cursor: not-allowed;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+:host([label]) {
+
+  .input::placeholder {
+    color: transparent;
+  }
+}
+
+:host(:focus-within:not([disabled])),
+:host(:not([disabled]):hover) {
+
+  .input {
+    border-color: var(--theme-color, #722ed1);
+  }
+}
+
+/* 重置样式 */
+
+.input {
+  flex: 1;
+  padding: 0;
+  padding: 0.5rem;
+  overflow-x: hidden;
+  color: currentColor;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  outline-style: none;
+  transition: color 0.3s;
+  appearance: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+label {
+  position: absolute;
+  top: 50%;
+  left: 1em;
+  display: inline-block;
+  font-family: inherit;
+  background-color: white;
+  transform: translateY(-60%);
+  transition: background-color 0.3s ease-in, transform 0.2s cubic-bezier(0.14, 0.38, 0.65, 0.92);
+  user-select: none;
+}
+
+.material-input {
+  --input-default-border-color: rgba(0, 0, 0, 0.5);
+  --input-invalid-border-color: var(--danger-color, #f5222d);
+  --input-valid-border-color: var(--primary-color, #722ed1);
+  --input-border-bottom-color: rgba(0, 0, 0, 0.3);
+
+  &:invalid {
+
+    & ~ label {
+      color: var(--input-invalid-border-color);
+    }
+  }
+
+  &:valid ~ label {
+    color: var(--input-valid-border-color);
+  }
+
+  &:placeholder-shown ~ label {
+    color: var(--input-default-border-color);
+  }
+
+  // label will float in 2 situations based on its sibling input:
+  // 1. input get focus
+  // 2. input has text filled
+
+  &:focus ~ label,
+  &:not(:placeholder-shown) ~ label {
+    background-color: white;
+    transform: translateY(-120%);
+  }
+}

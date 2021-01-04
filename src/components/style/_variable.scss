@@ -1,0 +1,31 @@
+// height rules
+$height-base: 32px;
+$height-lg: 40px;
+$height-sm: 24px;
+
+// vertical paddings
+$padding-lg: 24px; // containers
+$padding-md: 16px; // small containers and buttons
+$padding-sm: 12px; // Form controls and items
+$padding-xs: 8px; // small items
+$padding-xss: 4px; // more small
+
+// Border color
+$border-color-base: hsv(0, 0, 85%);
+$border-color-split: hsv(0, 0, 94%);
+$border-color-inverse: #fff;
+$border-width-base: 1px;
+$border-style-base: solid;
+
+$font-size-base: 16px;
+$font-size-lg: $font-size-base + 2px;
+$font-size-sm: 14px;
+$border-radius-base: 2px;
+$border-radius-sm: $border-radius-base;
+//Button
+$line-height-base: 1.5;
+$btn-font-weight: 400;
+
+//state
+$primary-color:#722ed1;
+$danger-color:#f5222d;

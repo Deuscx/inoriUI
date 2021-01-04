@@ -1,0 +1,70 @@
+:host {
+  display: inline-block;
+  -webkit-tap-highlight-color: transparent;
+
+  #switch {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+:host([disabled]) {
+  opacity: 0.6;
+  pointer-events: none;
+
+  & label {
+    cursor: not-allowed;
+    pointer-events: all;
+  }
+}
+
+:host(:focus-within) label::after,
+:host(:active) ::after {
+  background: var(--theme-color, #722ed1);
+}
+
+:host(:focus-within) #switch,
+:host(:active) #switch {
+  z-index: 2;
+}
+
+label {
+  display: flex;
+  width: 2.4em;
+  height: 1.2em;
+  padding: 0.125em;
+  background: #eee;
+  border-radius: 1.2em;
+  cursor: pointer;
+  transition: 0.3s width, 0.3s height, 0.3s background-color;
+
+  &::before {
+    flex: 0;
+    transition: 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) flex;
+    content: '';
+  }
+
+  &::after {
+    width: 0.4em;
+    height: 0.4em;
+    background: #fff;
+    border: 0.4em solid #fff;
+    border-radius: 1.2em;
+    box-shadow: 0 2px 4px 0 rgba(0, 35, 11, 0.2);
+    transition: 0.3s background, 0.3s padding, 0.3s width, 0.3s height, 0.3s border-radius, 0.3s border;
+    content: '';
+  }
+
+  &:active::after {
+    padding: 0 0.3em;
+  }
+}
+
+#switch:checked + label {
+  background: var(--theme-color, #722ed1);
+
+  &::before {
+    flex: 1;
+  }
+}
